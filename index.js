@@ -15,8 +15,11 @@ exports.longestWord = function(){
         ];
 
     let result
-    //write your code here
-    result = "crocodile"
+    words.sort(function(a,b){
+        return b.length - a.length;
+      });
+      
+      result = words[0]
 
 
     return result
@@ -33,10 +36,17 @@ Calculate the product of the following array:
 
 */
 exports.productArray = function(){
-    var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+    var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10],
     //write code here
-
-
+    
+    p = 1,
+    i;
+    for (i = 0; i < numbers.length; i += 1) 
+    {
+    p *= numbers[i];
+    }
+    
+    result = p
     //end code here
     return result
 }
@@ -64,8 +74,8 @@ exports.averageWords = function(){
 
     let result = 0
     //write codes here
-
-
+    avg = words.join('').length / words.length
+result = avg
     //end code here
     return result
 }
@@ -104,7 +114,10 @@ exports.uniquifyArray = function(){
         "bring"
       ];
     // Your code here
+    const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
 
+    let unique = [...new Set(words)];
+    result = unique
     return result
   }
 
@@ -115,7 +128,7 @@ In the 20×20 grid below; What is the greatest sum of element of the array?
 */
 
 exports.greatestSumMulti = function(){
-var matrix = [
+var secondType = [
   [08,02,22,97,38,15,00,40,00,75,04,00,07,78,52,12,50,77,91,08],
   [49,49,99,40,17,81,18,57,60,87,17,00,98,43,69,48,04,56,62,00],
   [81,49,31,73,55,79,14,29,03,71,40,67,53,88,30,03,49,13,36,65],
@@ -138,11 +151,26 @@ var matrix = [
   [01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48],
 ];
 
-    //code here
-
-
-
-    //end code here
-
+    var max = []
+    var sum = 0;
+    for (var j = 0; j < secondType.length; j++){
+        for (var i = 0; i < secondType[j].length; i++) {
+            sum += secondType[j][i]
+    
+    }
+    max.push(sum);
+    sum = 0
+    }
+    
+    function sortNumber(a, b) {
+        return b - a;
+      }
+      
+      var numArray = max;
+      numArray.sort(sortNumber);
+      
+      console.log(numArray[0])
+  
+result = numArray[0]
     return result
 }
